@@ -1,0 +1,17 @@
+--- !ruby/object:OpenWFE::ProgRawExpression 
+apply_time: 
+attributes: 
+children: []
+
+environment_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hemopizoha environment 0)
+fei: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hemopizoha participant 0.0.2.0)
+parent_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hemopizoha concurrence 0.0.2)
+raw_representation: !ruby/object:OpenWFE::SimpleExpRepresentation 
+  attributes: !map:OpenWFE::SymbolHash {}
+
+  children: 
+  - monkey
+  name: participant

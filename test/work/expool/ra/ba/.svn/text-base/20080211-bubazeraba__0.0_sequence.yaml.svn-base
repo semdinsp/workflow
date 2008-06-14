@@ -1,0 +1,21 @@
+--- !ruby/object:OpenWFE::SequenceExpression 
+apply_time: 2008-02-11 10:40:34.223768 +08:00
+attributes: !map:OpenWFE::SymbolHash {}
+
+children: 
+- !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba participant 0.0.0)
+- !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba participant 0.0.1)
+- !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba concurrence 0.0.2)
+- !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba participant 0.0.3)
+- !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba participant 0.0.4)
+environment_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba environment 0)
+fei: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba sequence 0.0)
+parent_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-bubazeraba process-definition 0)

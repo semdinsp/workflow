@@ -1,0 +1,112 @@
+# Logfile created on Mon Feb 11 10:46:51 +0800 2008 by /
+I, [2008-02-11T10:46:51.244227 #1986]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:46:51.247456 #1986]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 20858060
+I, [2008-02-11T10:46:51.251002 #1986]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bugezedoki
+I, [2008-02-11T10:46:51.318872 #1986]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:46:51.320403 #1986]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 20799940
+I, [2008-02-11T10:46:57.415329 #2016]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:46:57.416271 #2016]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19859880
+I, [2008-02-11T10:46:57.419568 #2016]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:46:57.420431 #2016]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19849010
+I, [2008-02-11T10:46:57.423750 #2016]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bugibosaja
+I, [2008-02-11T10:46:57.524726 #2016]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:46:57.525680 #2016]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21279200
+I, [2008-02-11T10:46:57.530145 #2016]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bugibowafu
+I, [2008-02-11T10:46:57.537935 #2016]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:46:57.538819 #2016]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21201890
+I, [2008-02-11T10:49:23.654588 #2044]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:49:23.655560 #2044]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19859590
+I, [2008-02-11T10:49:23.658795 #2044]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:49:23.659667 #2044]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19848720
+I, [2008-02-11T10:49:23.663734 #2044]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-buhejigeru
+I, [2008-02-11T10:49:23.760470 #2044]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:49:23.761343 #2044]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21253590
+I, [2008-02-11T10:49:23.764370 #2044]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-buhejikede
+I, [2008-02-11T10:49:23.776897 #2044]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:49:23.777711 #2044]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21188600
+I, [2008-02-11T10:52:24.418433 #2062]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:52:24.419424 #2062]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19856350
+I, [2008-02-11T10:52:24.422627 #2062]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:52:24.423536 #2062]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19845480
+I, [2008-02-11T10:52:24.426987 #2062]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bujepedabe
+I, [2008-02-11T10:52:24.613518 #2062]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:52:24.614433 #2062]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21253990
+I, [2008-02-11T10:52:24.617961 #2062]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bujepemifu
+I, [2008-02-11T10:52:24.631211 #2062]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:52:24.641963 #2062]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21179830
+I, [2008-02-11T10:53:05.525650 #2080]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:05.526524 #2080]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19859140
+I, [2008-02-11T10:53:05.529500 #2080]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:05.530329 #2080]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19848270
+I, [2008-02-11T10:53:05.533645 #2080]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bujisuyaku
+I, [2008-02-11T10:53:05.732460 #2080]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:05.733526 #2080]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21253470
+I, [2008-02-11T10:53:05.738625 #2080]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bujitakere
+I, [2008-02-11T10:53:05.752680 #2080]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:05.753519 #2080]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21181930
+I, [2008-02-11T10:53:27.594609 #2098]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:27.595556 #2098]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19857120
+I, [2008-02-11T10:53:27.598472 #2098]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:27.599265 #2098]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19846250
+I, [2008-02-11T10:53:27.602535 #2098]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bujomabadi
+I, [2008-02-11T10:53:27.696135 #2098]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:27.697152 #2098]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21251970
+I, [2008-02-11T10:53:27.700165 #2098]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bujomaguda
+I, [2008-02-11T10:53:27.716678 #2098]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:53:27.717504 #2098]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21180150
+I, [2008-02-11T10:55:39.632733 #2116]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:55:39.633681 #2116]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19830920
+I, [2008-02-11T10:55:39.636575 #2116]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:55:39.637352 #2116]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19820050
+I, [2008-02-11T10:55:39.640573 #2116]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bukifumiro
+I, [2008-02-11T10:55:39.740576 #2116]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:55:39.741527 #2116]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21258060
+I, [2008-02-11T10:55:39.747115 #2116]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-bukifurize
+I, [2008-02-11T10:55:39.760869 #2116]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T10:55:39.761737 #2116]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21164470
+I, [2008-02-11T11:12:50.333982 #2170]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:12:50.334925 #2170]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19830850
+I, [2008-02-11T11:12:50.338330 #2170]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:12:50.339209 #2170]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19819980
+I, [2008-02-11T11:12:50.342695 #2170]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-buchijiwato
+I, [2008-02-11T11:12:50.437010 #2170]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:12:50.437938 #2170]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21258060
+I, [2008-02-11T11:12:50.440722 #2170]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-buchijodutzu
+I, [2008-02-11T11:12:50.462844 #2170]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:12:50.463804 #2170]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21164340
+I, [2008-02-11T11:18:58.230475 #2188]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:18:58.231421 #2188]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19830850
+I, [2008-02-11T11:18:58.234424 #2188]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:18:58.235275 #2188]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19819980
+I, [2008-02-11T11:18:58.240193 #2188]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-buyoboshipu
+I, [2008-02-11T11:18:58.435171 #2188]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:18:58.436274 #2188]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21258060
+I, [2008-02-11T11:18:58.443408 #2188]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-buyobugejo
+I, [2008-02-11T11:18:58.459962 #2188]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T11:18:58.460835 #2188]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21164590
+I, [2008-02-11T12:16:10.515904 #2423]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T12:16:10.529884 #2423]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19825590
+I, [2008-02-11T12:16:10.534131 #2423]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T12:16:10.535269 #2423]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19814710
+I, [2008-02-11T12:16:10.561538 #2423]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-dekodomebo
+I, [2008-02-11T12:16:10.657059 #2423]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T12:16:10.657998 #2423]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21256210
+I, [2008-02-11T12:16:10.660961 #2423]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-dekodoromu
+I, [2008-02-11T12:16:10.673976 #2423]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T12:16:10.674885 #2423]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21163140
+I, [2008-02-11T22:35:06.439094 #2810]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T22:35:06.458032 #2810]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19824060
+I, [2008-02-11T22:35:06.462825 #2810]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T22:35:06.463926 #2810]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 19812890
+I, [2008-02-11T22:35:06.489625 #2810]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-jezatebosa
+I, [2008-02-11T22:35:06.576527 #2810]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T22:35:06.577438 #2810]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21275090
+I, [2008-02-11T22:35:06.580787 #2810]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - wait_for() 20080211-jezatefutzu
+I, [2008-02-11T22:35:06.591873 #2810]  INFO -- : OpenWFE::CacheExpressionStorage 'expressionStorage' - new() size is 1000
+I, [2008-02-11T22:35:06.592759 #2810]  INFO -- : OpenWFE::CachedFilePersistedEngine 'engine' - new() --- engine started --- 21182600
+I, [2008-02-12T22:19:29.730313 #1159]  INFO -- : OpenWFE::Engine 'engine' - new() --- engine started --- 19804830
+I, [2008-02-12T22:19:29.742928 #1159]  INFO -- : OpenWFE::Engine 'engine' - new() --- engine started --- 19794830
+I, [2008-02-12T22:19:29.747285 #1159]  INFO -- : OpenWFE::Engine 'engine' - wait_for() 20080212-jemomukemo
+I, [2008-02-12T22:19:30.181977 #1159]  INFO -- : OpenWFE::Engine 'engine' - new() --- engine started --- 19734430
+I, [2008-02-12T22:19:30.232374 #1159]  INFO -- : OpenWFE::Engine 'engine' - wait_for() 20080212-jemonafuko
+I, [2008-02-12T22:19:30.244491 #1159]  INFO -- : OpenWFE::Engine 'engine' - new() --- engine started --- 21255440

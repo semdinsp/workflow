@@ -1,0 +1,17 @@
+--- !ruby/object:OpenWFE::ProgRawExpression 
+apply_time: 
+attributes: 
+children: []
+
+environment_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-budotzutegi environment 0)
+fei: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-budotzutegi participant 0.0.2.1)
+parent_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080211-budotzutegi concurrence 0.0.2)
+raw_representation: !ruby/object:OpenWFE::SimpleExpRepresentation 
+  attributes: !map:OpenWFE::SymbolHash {}
+
+  children: 
+  - bob
+  name: participant

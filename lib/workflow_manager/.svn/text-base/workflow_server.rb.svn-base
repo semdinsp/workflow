@@ -1,0 +1,41 @@
+require 'yaml'
+require 'rubygems'
+gem 'stomp'
+require 'stomp'
+gem 'stomp_message'
+require 'stomp_message'
+
+module WorkflowManager
+class WorkflowServer < StompMessage::StompZActiveRecordServer
+  attr_accessor :test #:mmsc_host, :mmsc_port, :mmsc_url
+  def initialize(options={})
+    self.model_list = []
+    self.model_list << "workitem_record.rb"
+    super(options)
+   # self.mmsc_host = options[:mmsc_host] || "localhost"
+   #  self.mmsc_port = options[:mmsc_port] || "8081"
+   #  self.mmsc_url = options[:mmsc_url] || "/7"
+    puts "#{self.class} initializing"
+  end
+
+ def setup_thread_specific_items(mythread_number)
+    super(mythread_number)
+    puts " ----creating workflow manager for #{Thread.current[:name]}"
+    Thread.current[:wfe]= WorkflowManager::Engine.new(Thread.current[:name])
+  end
+ 
+  def stomp_WORKFLOW(msg, stomp_msg)
+     puts "about to process msg is #{stomp_msg.body} messsage body #{msg.body}"
+     #mms=MmscManager::MmsStompMessage.load_xml(stomp_msg.body)
+     # puts "#{Thread.current[:name]}sending mms #{mms.get_mms_message}" if @debug
+      res= Thread.current[:wfe].launch(msg.body)
+      reply_msg = StompMessage::Message.new('stomp_REPLY', res)
+      puts "response message: #{reply_msg.to_xml}"
+      send_reply(stomp_msg.headers,reply_msg) if stomp_msg.headers['reply-to']!=nil
+    #  check_response(res,mms)
+     res
+  end
+  
+end # workflow server
+
+end #module

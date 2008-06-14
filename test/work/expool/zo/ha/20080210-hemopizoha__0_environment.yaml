@@ -1,0 +1,11 @@
+--- !ruby/object:OpenWFE::Environment 
+apply_time: 
+attributes: 
+children: []
+
+environment_id: 
+fei: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hemopizoha environment 0)
+parent_id: 
+variables: {}
+

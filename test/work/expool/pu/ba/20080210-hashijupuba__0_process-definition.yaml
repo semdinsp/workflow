@@ -1,0 +1,14 @@
+--- !ruby/object:OpenWFE::DefineExpression 
+apply_time: 2008-02-10 18:30:10.670545 +08:00
+attributes: 
+  name: TheProcess
+  revision: "2"
+body_fei: &id001 !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 2 20080210-hashijupuba sequence 0.0)
+children: 
+- *id001
+environment_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 2 20080210-hashijupuba environment 0)
+fei: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 2 20080210-hashijupuba process-definition 0)
+parent_id: 

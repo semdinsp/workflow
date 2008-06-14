@@ -1,0 +1,45 @@
+8
+
+dir
+215
+http://oliver.ficonab.com/svn2/rails/workflow/test/work
+http://oliver.ficonab.com/svn2/rails
+
+
+
+2008-02-11T15:44:13.236885Z
+215
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ceeaca9f-745c-46d7-b156-2271164c1546
+
+ejournal
+dir
+
+wfidgen.last
+file
+222
+
+
+
+2008-02-12T14:19:30.000000Z
+578911e8c714d49583f238bb02295c9d
+2008-02-20T09:17:03.955505Z
+222
+
+expool
+dir
+

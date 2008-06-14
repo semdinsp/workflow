@@ -1,0 +1,28 @@
+--- !ruby/object:OpenWFE::ConcurrenceExpression 
+apply_time: 2008-02-10 18:29:05.999419 +08:00
+attributes: !map:OpenWFE::SymbolHash {}
+
+children: 
+- &id002 !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hasamipota participant 0.0.2.0)
+- &id003 !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hasamipota participant 0.0.2.1)
+environment_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hasamipota environment 0)
+fei: &id001 !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hasamipota concurrence 0.0.2)
+parent_id: !ruby/OpenWFE::FlowExpressionId 
+  s: (fei 0.9.16 engine field:__definition TheProcess 0 20080210-hasamipota sequence 0.0)
+sync_expression: !ruby/object:OpenWFE::GenericSyncExpression 
+  cancel_remaining: true
+  count: -1
+  merge_array: !ruby/object:OpenWFE::GenericSyncExpression::MergeArray 
+    merge: :first
+    merge_type: :mix
+    synchable_fei: *id001
+    workitem: 
+  remaining_children: 
+  - *id002
+  - *id003
+  reply_count: 0
+  unready_queue: 

@@ -1,0 +1,301 @@
+require 'yaml'
+require 'rubygems'
+gem 'stomp'
+require 'stomp'
+gem 'stomp_message'
+require 'stomp_message'
+gem 'smsc_manager'
+require 'smsc_manager'
+gem 'billing_web_service'
+require 'billing_web_service'
+
+require 'openwfe/engine/engine'
+require 'openwfe/engine/file_persisted_engine'
+require 'openwfe/participants/participants'
+require 'openwfe/participants/enoparticipants'
+ require 'openwfe/extras/participants/activeparticipants'
+module WorkflowManager
+class ActiveTracker < OpenWFE::Extras::ActiveStoreParticipant
+  # just bang it into the database
+  def consume (workitem)
+     # workitem.save
+       awi = OpenWFE::Extras::Workitem.from_owfe_workitem(workitem)
+       awi.store_name=@store_name
+    #   awi.replace_fields(workitem.attributes)
+       awi.save
+      reply_to_engine(workitem)
+      
+  end
+  def reply_to_engine (workitem)
+           # super workitem    #.as_owfe_workitem
+           # workitem.save
+                #
+                # replies to the workflow engine   
+               get_engine.reply(workitem)
+  end
+end
+class Engine 
+attr_accessor :wfe_engine, :thread_name, :final_response, :workflow_hash
+def initialize(tn)
+  # puts "in initialize engine"
+   self.thread_name=tn
+   ac = {}
+   self.final_response={}
+   ac[:work_directory] = "work"
+   ac[:ruby_eval_allowed] = true
+   ac[:remote_definitions_allowed] = true  # remote url
+   create_workflow_hash
+#   self.wfe_engine = OpenWFE::CachedFilePersistedEngine.new(ac)
+   self.wfe_engine = OpenWFE::Engine.new(ac)
+   self.reg_participants
+   puts "#{self.thread_name} ready"
+end 
+# create the hash of work flows to run, details, urls, etc
+def create_workflow_hash
+    self.workflow_hash= {}
+    # define test flow
+     self.workflow_hash[:test]={}
+     self.workflow_hash[:test][:type]='RUBY'   #or url
+     self.workflow_hash[:test][:process_flow]= TheProcessDefinition0
+      # define test2 flow
+        self.workflow_hash[:test2]={}
+        self.workflow_hash[:test2][:type]='RUBY'   #or url
+        self.workflow_hash[:test2][:process_flow]= TheProcessDefinition2
+     # define balance transfer flow
+       self.workflow_hash[:transfer]={}
+        self.workflow_hash[:transfer][:type]='URL'   #or url
+        self.workflow_hash[:transfer][:url]= 'process_definitions/balance_transfer.xml'
+     #   self.workflow_hash[:transfer][:host]= 'localhost'
+        self.workflow_hash[:transfer][:host]= 'process.cure.com.ph' 
+      #  self.workflow_hash[:transfer][:port]= '3000'
+       self.workflow_hash[:transfer][:port]= '80'
+end
+def billing_action(type,msisdn,value)
+       #  puts "BILLING ACTION: #{type} #{msisdn} #{value}"
+         args={}  #add host etc here
+         bs=BillingWebService::BillingSendTopic.new(args)
+         res=bs.send(type,msisdn,value,args)
+         bs.disconnect_stomp
+         puts "result from billing eval is #{res} for: #{type} #{msisdn} #{value}" 
+         res
+end
+def send_sms(msg, dest,src)
+   r=true
+  begin
+       sms_sender= SmscManager::SmsSendTopic.new
+        sms=SmscManager::Sms.new(msg,dest,src)
+        val= sms_sender.send_topic_sms(sms)
+        r= "response: #{val.to_s}"
+        sms_sender.disconnect_stomp       
+   rescue Exception => e
+      puts "exception found #{e.message} #{e.backtrace}" 
+      r=false
+   end
+   r
+end
+#
+# register a participant per workitem store
+def reg_participants
+    puts "#{self.thread_name} engine particpant setup"
+    self.wfe_engine.register_participant :setup do |workitem|
+         puts "------> setup got a workitem..."
+          workitem.sms_source = "992"
+         workitem.sms_message = "no message"
+         workitem.workflow_status = "false"
+         workitem.final_response="failure"
+         puts "<------- end of setup"
+     end
+   #   self.wfe_engine.register_participant( 
+    #     'bal_transfer', 
+   #      OpenWFE::Extras::ActiveStoreParticipant.new('bal_transfer
+#self.wfe_engine.register_participant :bal_transfer do |workitem|
+#          puts "bal_transfer got a workitem..."
+#          workitem.particpant = 'bal_transfer'
+#           workitem.store = 'bal_transfer'
+#           workitem.save
+#end
+ self.wfe_engine.register_participant( 
+          'bal_transfer',      ActiveTracker.new('bal_transfer'))
+          
+        self.wfe_engine.register_participant( 
+                'process2', 
+                ActiveTracker.new('process2'))
+         
+      self.wfe_engine.register_participant :credit do |workitem|
+            puts "credit action got a workitem..."
+             workitem.credit_result=false
+             res= self.billing_action('credit',workitem.credit_msisdn,workitem.peso_value )
+             puts "action credit msisdn #{workitem.credit_msisdn} value #{workitem.peso_value} RES: #{res}"
+             workitem.credit_result=res
+        end
+          self.wfe_engine.register_participant :debit do |workitem|
+                puts "debit action got a workitem..."  
+                 workitem.debit_result=false 
+                 # peso charge  -- could be variable
+                value=-1*workitem.peso_value.to_i-1
+                res=self.billing_action('debit',workitem.debit_msisdn,value.to_s )
+                 puts "action debit msisdn #{workitem.debit_msisdn} value #{workitem.peso_value} RES: #{res}"
+                workitem.debit_result=res
+            end
+    self.wfe_engine.register_participant :monkey do |workitem|
+         puts "monkey got a workitem..."
+         workitem.monkey_comment = "this thing looks interesting"
+     end
+        self.wfe_engine.register_participant :intprocess2 do |workitem|
+            puts "process2 got a workitem..."
+            workitem.process2_comment = "yeah process 2"
+        end
+     self.wfe_engine.register_participant :bob do |workitem|
+         puts "bob got a workitem..."
+         workitem.bob_comment = "not for me, I prefer VB"
+         workitem.bob_comment2 = "Bob rules"
+            workitem.final_response = "all ok"
+         self.final_response[workitem.fei.workflow_instance_id.to_s] = workitem.final_response
+     end
+      self.wfe_engine.register_participant :sms do |workitem|
+          puts "sms got a workitem..."
+          puts "sms #{workitem.sms_destination} message: #{workitem.sms_message}"
+          res=send_sms(workitem.sms_message,workitem.sms_destination, workitem.sms_source)
+          workitem.problem=!res 
+      end
+     #    p=OpenWFE::MailParticipant.new(
+    #        :smtp_server => "mail2.cure.com.ph",
+    #        :smtp_port => 25,
+   #        :from_address => "scott.sproule@cure.com.ph"
+   #    ) do |workitem|
+   #       s = ""
+    #      s <<  "result is #{workitem.final_response}"
+    #      s << "summary of process #{workitem.fei.workflow_instance_id}"
+   #             workitem.attributes.each do |k, v|
+                   # next unless k.match ".*_comment$"
+    #                s << " - #{k} : '#{v}'"
+    #            end           
+   #       s << "it's #{Time.new.to_s} and you've got mail"
+    #      s
+    #    end
+     #      self.wfe_engine.register_participant :mail  do |workitem|
+    #            puts "in mail participant"
+              #  p.consume(workitem)  if workitem.attributes['debit_result']!='true' or workitem.attributes['credit_result']!='true'
+     #     end
+           
+       self.wfe_engine.register_participant :detail do |workitem|
+            puts "detail got a workitem..."
+            puts "detail of process #{workitem.fei.workflow_instance_id}"
+                  workitem.attributes.each do |k, v|
+                      puts " - #{k} : '#{v}'"
+                  end
+            puts '------end of detail'
+        end
+     self.wfe_engine.register_participant :summarize do |workitem|
+          puts "Summarize got a workitem..."
+          workitem.final_response="all ok" if workitem.attributes['debit_result']=='true' and workitem.attributes['credit_result']=='true'
+          puts  "result is #{workitem.final_response}"
+          self.final_response[workitem.fei.workflow_instance_id.to_s] = workitem.final_response
+          puts "summary of process #{workitem.fei.workflow_instance_id}"
+                workitem.attributes.each do |k, v|
+                   # next unless k.match ".*_comment$"
+                    puts " - #{k} : '#{v}'"
+                end
+         puts '-------end of summary'
+      end
+      self.wfe_engine.register_participant :reverse_charges do |workitem|
+            puts "reverse_charges got a workitem..."
+             res=false
+             if workitem.attributes['debit_result']=='true'
+                 value=1*workitem.peso_value.to_i+1
+                 res=self.billing_action('credit',workitem.debit_msisdn,value.to_s )
+                 puts "return from reversing debit: #{res}"
+               end
+             if   workitem.attributes['credit_result']=='true'
+                 res= self.billing_action('debit',workitem.credit_msisdn,workitem.peso_value )
+                   puts "return from reversing credit: #{res}"
+             end
+            puts 'end of reverse charges'
+        end
+       self.wfe_engine.register_participant :inform_success do |workitem|
+            puts "Inform_success got a workitem..."
+            res=false
+            if workitem.final_response=="all ok"
+               res=send_sms("You have sent #{workitem.peso_value} peso to #{workitem.credit_msisdn}: tracking process id:'#{workitem.fei.workflow_instance_id}'", workitem.debit_msisdn, workitem.sms_source)
+                res=send_sms("You have received #{workitem.peso_value} pesos from #{workitem.debit_msisdn}: tracking process id:'#{workitem.fei.workflow_instance_id}' ",workitem.credit_msisdn,workitem.sms_source) and res
+            end
+      end
+end
+# this  should read xml files
+class TheProcessDefinition0 < OpenWFE::ProcessDefinition
+       sequence do
+            participant :setup
+             participant :detail
+           concurrence do
+               participant :monkey
+               participant :bob
+           end
+           participant :sms
+           participant :summarize
+       end
+   end
+   class TheProcessDefinition2 < OpenWFE::ProcessDefinition
+          sequence do
+            participant :setup
+         #     concurrence do
+         #         participant :monkey
+         #         participant :intprocess2
+         #     end
+            participant :process2
+            participant :bob
+            participant :process2
+          end
+      end
+def manage_processes
+  puts "in manage process"
+end
+def build_launch_item(msg)
+  msg_hash=YAML.load(msg)
+   id = :test2 if msg== "process2"
+   id = :test if msg== "process"
+  # puts msg_hash.to_s 
+   msg_hash.each {|k,v| puts "key is #{k} value is #{v}"}
+  # puts "process:  #{msg_hash[:process]}"
+  id = :transfer if msg_hash[:process] == "balance_transfer"
+  raise 'unknown process' if id==nil
+  case self.workflow_hash[id][:type]
+     when   "RUBY"
+       li= OpenWFE::LaunchItem.new(self.workflow_hash[id][:process_flow])
+      when   "URL"
+           li  = OpenWFE::LaunchItem.new
+           url = "http://" + self.workflow_hash[id][:host] + ':' + self.workflow_hash[id][:port] +'/' + self.workflow_hash[id][:url]
+           li.workflow_definition_url = url 
+           msg_hash.each {|k,v|   eval("li.#{k}=v") }
+      else   
+        raise 'bad type in build launch item'
+      end
+      li.launcher = 'admin'
+
+    li.__initial_message = msg
+    li
+end
+def launch(message_string)
+     puts "#{self.thread_name} #{Time.now} received #{message_string}"
+     
+     begin
+        li=build_launch_item(message_string)
+        puts "#{self.thread_name} #{Time.now} built li"
+        fei = self.wfe_engine.launch li
+        self.final_response[fei.workflow_instance_id.to_s]="false"
+        puts "#{self.thread_name} #{Time.now} started process '#{fei.workflow_instance_id}'"
+
+        self.wfe_engine.wait_for fei
+        puts "#{self.thread_name} #{Time.now} finished process '#{fei.workflow_instance_id}'"
+      rescue RuntimeError => r
+        puts "Runtimeerror #{r.message}"
+        raise r
+     rescue Exception => e
+        puts  "message #{e.message} #{e.class}"
+        puts  "#{self.thread_name} #{Time.now} finished process '#{fei.workflow_instance_id}' found exception #{e.message}"
+     end 
+     self.final_response[fei.workflow_instance_id.to_s]
+end
+  
+
+end  #module
+end # classs
